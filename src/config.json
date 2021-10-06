@@ -1,0 +1,27 @@
+{
+	"webServerHost" : "",
+	"webServerPort" : 6900,
+	
+	"statusUpdateTime" : 60,
+	"timezone" : [1, 0],
+	"format24h" : false,
+
+	"instances": [
+		{
+			"discordBotTocken" : "",
+			"serverStatusChanelId" : "",
+			
+			"server_type" : "",
+			"server_host" : "",
+			"server_port" : "",
+			
+			"server_name" : "test server",
+			"server_logo" : "",
+			"server_color" : "#00ff00",
+			
+			"minimal" : false,
+			"server_enable_playerlist" : true,
+			"server_enable_graph" : true
+		}
+	]
+}
