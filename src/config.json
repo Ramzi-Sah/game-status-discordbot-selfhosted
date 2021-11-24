@@ -19,6 +19,7 @@
 			"server_logo" : "",
 			"server_color" : "#00ff00",
 			
+			"steam_btn" : true,
 			"minimal" : false,
 			"server_enable_playerlist" : true,
 			"server_enable_graph" : true

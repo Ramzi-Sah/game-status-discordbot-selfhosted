@@ -54,7 +54,7 @@ function Sleep(milliseconds) {
 //----------------------------------------------------------------------------------------------------------
 // create client
 require('dotenv').config();
-const {Client, MessageEmbed, Intents} = require('discord.js');
+const {Client, MessageEmbed, Intents, MessageActionRow, MessageButton} = require('discord.js');
 const client = new Client({
 	messageEditHistoryMaxSize: 0,
 	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
@@ -124,6 +124,8 @@ async function createStatusMessage(statusChannel) {
 	embed.setTitle("instance starting...");
 	embed.setColor('#ffff00');
 	
+
+	
 	return await statusChannel.send({ embeds: [embed] }).then((sentMessage)=> {
 		return sentMessage;
 	});	
@@ -180,8 +182,17 @@ function getLastMessage(statusChannel) {
 async function startStatusMessage(statusMessage) {
 	while(true){
 		try {
+			// steam link button
+			let row = new MessageActionRow()
+			row.addComponents(
+				new MessageButton()
+					.setCustomId('steamLink')
+					.setLabel('Connect')
+					.setStyle('PRIMARY')
+			);
+		
 			let embed = await generateStatusEmbed();
-			statusMessage.edit({ embeds: [embed] });
+			statusMessage.edit({ embeds: [embed], components: config["steam_btn"] ? [row] : [] });
 		} catch (error) {
 			process.send({
 				instanceid : instanceId,
@@ -193,7 +204,11 @@ async function startStatusMessage(statusMessage) {
 	};
 };
 
-
+client.on('interactionCreate', interaction => {
+	if (!interaction.isButton()) return;
+	
+	interaction.reply({ content: 'steam://connect/' + config["server_host"] + ':' + config["server_port"], ephemeral: true });
+});
 
 
 
