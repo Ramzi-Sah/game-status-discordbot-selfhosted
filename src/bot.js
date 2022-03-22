@@ -222,7 +222,10 @@ function generateStatusEmbed() {
 	let embed = new MessageEmbed();
 
 	// set embed name and logo
-	embed.setAuthor(config["server_name"], config["server_logo"]);
+	embed.setAuthor({
+		name: config[`server_name`],
+		iconURL: config[`server_logo`]
+	});
 	
 	// set embed updated time
 	tic = !tic;
@@ -233,11 +236,9 @@ function generateStatusEmbed() {
 	updatedTime.setHours(updatedTime.getHours() + config["timezone"][0] - 1);
 	updatedTime.setMinutes(updatedTime.getMinutes() + config["timezone"][1]);
 
-	embed.setFooter(
-		ticEmojy + ' ' + 
-		"Last Update" + ': ' + 
-		updatedTime.toLocaleTimeString('en-US', {hour12: !config["format24h"], month: 'short', day: 'numeric', hour: "numeric", minute: "numeric"})
-	);
+	embed.setFooter({
+		text: ticEmojy + ' ' + "Last Update" + ': ' + updatedTime.toLocaleTimeString('en-US', {hour12: !config["format24h"], month: 'short', day: 'numeric', hour: "numeric", minute: "numeric"})
+	});
 	
 	try {
 		return gamedig.query({
