@@ -1,6 +1,6 @@
 /*
 	Author: Ramzi Sah#2992
-	Desription:
+	Description:
 		main bot code
 */
 
@@ -277,7 +277,7 @@ function generateStatusEmbed() {
 			
 			// server name field
 			embed.addField("Server Name" + ' :', config['server_name']);
-			embed.addField("Server Desription" + ' :', serverName);
+			embed.addField("Server Description" + ' :', serverName);
 
 			//-----------------------------------------------------------------------------------------------
 			// basic server info
