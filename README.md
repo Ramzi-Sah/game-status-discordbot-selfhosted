@@ -33,6 +33,13 @@ Read this [article](https://help.pebblehost.com/en/article/how-to-invite-your-bo
     ```sh
     nvm install --lts
     ```
+    Another way to install nvm
+    ```sh
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    ```
+    ```sh
+    source ~/.profile
+    ```
 2. Verify NVM, NPM, and NODE version
     ```sh
     nvm -v
