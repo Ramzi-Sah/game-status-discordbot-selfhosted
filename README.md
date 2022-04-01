@@ -7,6 +7,9 @@ self hosted version of game status discord bot
 - Fix Error (DeprecationWarning) - [xMin3S](https://github.com/xMin3S)
 - Fix Error (Graph and more) - [Rizkychi](https://github.com/rizkychi)
 
+### How to invite bot to your Discord Server
+Read this [article](https://help.pebblehost.com/en/article/how-to-invite-your-bot-to-a-discord-server-1asdlyg/)
+
 ### Installation
 1. Perform as root user
     ```sh
