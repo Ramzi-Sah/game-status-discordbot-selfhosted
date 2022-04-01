@@ -222,7 +222,11 @@ function generateStatusEmbed() {
 	let embed = new MessageEmbed();
 
 	// set embed name and logo
-	embed.setAuthor(config["server_name"], config["server_logo"]);
+	// embed.setAuthor(config["server_name"], config["server_logo"]);
+	embed.setAuthor({
+		name: config[`server_author`],
+		iconURL: config[`server_logo`]
+	});
 	
 	// set embed updated time
 	tic = !tic;
@@ -230,14 +234,17 @@ function generateStatusEmbed() {
 	
 	let updatedTime = new Date();
 
-	updatedTime.setHours(updatedTime.getHours() + config["timezone"][0] - 1);
+	updatedTime.setHours(updatedTime.getHours() + config["timezone"][0]);
 	updatedTime.setMinutes(updatedTime.getMinutes() + config["timezone"][1]);
 
-	embed.setFooter(
-		ticEmojy + ' ' + 
-		"Last Update" + ': ' + 
-		updatedTime.toLocaleTimeString('en-US', {hour12: !config["format24h"], month: 'short', day: 'numeric', hour: "numeric", minute: "numeric"})
-	);
+	// embed.setFooter(
+	// 	ticEmojy + ' ' + 
+	// 	"Last Update" + ': ' + 
+	// 	updatedTime.toLocaleTimeString('en-EN', {hour12: !config["format24h"], month: 'long', day: 'numeric', hour: "numeric", minute: "numeric"})
+	// );
+	embed.setFooter({
+		text: ticEmojy + ' ' + "Last Update" + ': ' + updatedTime.toLocaleTimeString('en-US', {hour12: !config["format24h"], month: 'short', day: 'numeric', hour: "numeric", minute: "numeric"})
+	});
 	
 	try {
 		return gamedig.query({
@@ -254,7 +261,8 @@ function generateStatusEmbed() {
 
 			//-----------------------------------------------------------------------------------------------
 			// set server name
-			let serverName = config["server_name"];
+			// let serverName = config["server_name"];
+			let serverName = state.name;
 			
 			// refactor server name
 			for (let i = 0; i < serverName.length; i++) {
@@ -268,7 +276,8 @@ function generateStatusEmbed() {
 			};
 			
 			// server name field
-			embed.addField("Server Name" + ' :', serverName);
+			embed.addField("Server Name" + ' :', config['server_name']);
+			embed.addField("Server Desription" + ' :', serverName);
 
 			//-----------------------------------------------------------------------------------------------
 			// basic server info
@@ -376,6 +385,7 @@ function generateStatusEmbed() {
 			if (config["server_enable_graph"])
 				embed.setImage(
 					"http://" + config["webServerHost"] + ":" + config["webServerPort"] + "/" + 'graph_' + instanceId + '.png' + "?id=" + Date.now()
+					// "http://" + config["webServerHost"] + ":80/graphs/" + 'graph_' + instanceId + '.png' + "?id=" + Date.now()
 				);
 
 			return embed;

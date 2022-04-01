@@ -1,25 +1,26 @@
 {
-	"webServerHost" : "",
+	"webServerHost" : "127.0.0.1",
 	"webServerPort" : 6900,
 	
 	"statusUpdateTime" : 60,
-	"timezone" : [1, 0],
-	"format24h" : false,
+	"timezone" : [7, 0],
+	"format24h" : true,
 
 	"instances": [
 		{
 			"discordBotTocken" : "",
 			"serverStatusChanelId" : "",
 			
-			"server_type" : "",
+			"server_type" : "minecraft",
 			"server_host" : "",
-			"server_port" : "",
+			"server_port" : "25565",
 			
-			"server_name" : "test server",
+			"server_name" : "Minecraft Server",
+			"server_author" : "Minecraft Server Status",
 			"server_logo" : "",
-			"server_color" : "#00ff00",
+			"server_color" : "#42C2FF",
 			
-			"steam_btn" : true,
+			"steam_btn" : false,
 			"minimal" : false,
 			"server_enable_playerlist" : true,
 			"server_enable_graph" : true

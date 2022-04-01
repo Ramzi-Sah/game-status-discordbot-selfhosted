@@ -48,7 +48,8 @@ for (let i = 0; i < config["instances"].length; i++) {
 // start web server
 const http = require('http');
 const path = require('path');
-var dir = "./src/temp/graphs";
+//var dir = "./src/temp/graphs";
+var dir = "temp/graphs";
 dir = path.resolve(dir);
 
 var mime = {
@@ -69,6 +70,7 @@ var server = http.createServer(function (req, res) {
         res.setHeader('Content-Type', 'text/plain');
         return res.end('Method not implemented');
     }
+    var file = path.join(dir, reqpath.replace(/\/$/, '/'));
     var file = path.join(dir, reqpath.replace(/\/$/, '/index.html'));
 	
     if (file.indexOf(dir + path.sep) !== 0) {
