@@ -71,7 +71,7 @@ var server = http.createServer(function (req, res) {
         return res.end('Method not implemented');
     }
     var file = path.join(dir, reqpath.replace(/\/$/, '/'));
-    var file = path.join(dir, reqpath.replace(/\/$/, '/index.html'));
+    // var file = path.join(dir, reqpath.replace(/\/$/, '/index.html'));
 	
     if (file.indexOf(dir + path.sep) !== 0) {
         res.statusCode = 403;
