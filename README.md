@@ -17,7 +17,7 @@ Read this [article](https://help.pebblehost.com/en/article/how-to-invite-your-bo
     ```
 2. Install NVM
     ```sh
-    curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh -o install_nvm.sh
+    curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh -o install_nvm.sh
     ```
     ```sh
     bash install_nvm.sh
