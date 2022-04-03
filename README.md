@@ -40,6 +40,9 @@ Read this [article](https://help.pebblehost.com/en/article/how-to-invite-your-bo
     ```sh
     source ~/.profile
     ```
+    ```sh
+    nvm install --lts
+    ```
 2. Verify NVM, NPM, and NODE version
     ```sh
     nvm -v
