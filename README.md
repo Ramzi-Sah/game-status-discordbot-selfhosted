@@ -66,15 +66,18 @@ Read this [article](https://help.pebblehost.com/en/article/how-to-invite-your-bo
     ```
 5. Edit config (fill in the empty fields)
     ```sh
-    nano src/config.json
+    cd src/
+    ```
+    ```sh
+    nano config.json
     ````
 6. Run Bot
     ```sh
-    node src/index.js
+    node index.js
     ```
     or run in background
      ```sh
-    node src/index.js &
+    node index.js &
     ```
 ### Troubleshooting
 If your label graph become square (▢▢▢▢▢▢▢)
